@@ -1,0 +1,21 @@
+{
+  "name": "ramserver",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch server.ts",
+    "lint": "eslint --cache --ext \".js,.ts,.tsx\" server.ts",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@trpc/server": "npm:@trpc/server@next",
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/node": "^20.10.0",
+    "eslint": "^8.57.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.6.2"
+  }
+}
