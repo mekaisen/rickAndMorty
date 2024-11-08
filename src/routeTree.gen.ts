@@ -12,7 +12,10 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as TinderImport } from './routes/tinder'
+import { Route as RatingImport } from './routes/rating'
 import { Route as PaginationImport } from './routes/pagination'
+import { Route as InfscrollImport } from './routes/infscroll'
+import { Route as ClickerImport } from './routes/clicker'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -22,8 +25,23 @@ const TinderRoute = TinderImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const RatingRoute = RatingImport.update({
+  path: '/rating',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const PaginationRoute = PaginationImport.update({
   path: '/pagination',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const InfscrollRoute = InfscrollImport.update({
+  path: '/infscroll',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ClickerRoute = ClickerImport.update({
+  path: '/clicker',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -43,11 +61,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/clicker': {
+      id: '/clicker'
+      path: '/clicker'
+      fullPath: '/clicker'
+      preLoaderRoute: typeof ClickerImport
+      parentRoute: typeof rootRoute
+    }
+    '/infscroll': {
+      id: '/infscroll'
+      path: '/infscroll'
+      fullPath: '/infscroll'
+      preLoaderRoute: typeof InfscrollImport
+      parentRoute: typeof rootRoute
+    }
     '/pagination': {
       id: '/pagination'
       path: '/pagination'
       fullPath: '/pagination'
       preLoaderRoute: typeof PaginationImport
+      parentRoute: typeof rootRoute
+    }
+    '/rating': {
+      id: '/rating'
+      path: '/rating'
+      fullPath: '/rating'
+      preLoaderRoute: typeof RatingImport
       parentRoute: typeof rootRoute
     }
     '/tinder': {
@@ -64,41 +103,69 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/clicker': typeof ClickerRoute
+  '/infscroll': typeof InfscrollRoute
   '/pagination': typeof PaginationRoute
+  '/rating': typeof RatingRoute
   '/tinder': typeof TinderRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/clicker': typeof ClickerRoute
+  '/infscroll': typeof InfscrollRoute
   '/pagination': typeof PaginationRoute
+  '/rating': typeof RatingRoute
   '/tinder': typeof TinderRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/clicker': typeof ClickerRoute
+  '/infscroll': typeof InfscrollRoute
   '/pagination': typeof PaginationRoute
+  '/rating': typeof RatingRoute
   '/tinder': typeof TinderRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pagination' | '/tinder'
+  fullPaths:
+    | '/'
+    | '/clicker'
+    | '/infscroll'
+    | '/pagination'
+    | '/rating'
+    | '/tinder'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pagination' | '/tinder'
-  id: '__root__' | '/' | '/pagination' | '/tinder'
+  to: '/' | '/clicker' | '/infscroll' | '/pagination' | '/rating' | '/tinder'
+  id:
+    | '__root__'
+    | '/'
+    | '/clicker'
+    | '/infscroll'
+    | '/pagination'
+    | '/rating'
+    | '/tinder'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ClickerRoute: typeof ClickerRoute
+  InfscrollRoute: typeof InfscrollRoute
   PaginationRoute: typeof PaginationRoute
+  RatingRoute: typeof RatingRoute
   TinderRoute: typeof TinderRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ClickerRoute: ClickerRoute,
+  InfscrollRoute: InfscrollRoute,
   PaginationRoute: PaginationRoute,
+  RatingRoute: RatingRoute,
   TinderRoute: TinderRoute,
 }
 
@@ -115,15 +182,27 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/clicker",
+        "/infscroll",
         "/pagination",
+        "/rating",
         "/tinder"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
+    "/clicker": {
+      "filePath": "clicker.tsx"
+    },
+    "/infscroll": {
+      "filePath": "infscroll.tsx"
+    },
     "/pagination": {
       "filePath": "pagination.tsx"
+    },
+    "/rating": {
+      "filePath": "rating.tsx"
     },
     "/tinder": {
       "filePath": "tinder.tsx"

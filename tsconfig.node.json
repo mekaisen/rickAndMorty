@@ -7,8 +7,12 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "paths": {
+      "@/components": ["./src/components"],
+      "@/utils": ["./src/utils"],
+      "@/*": ["./*"]
+    },
     "allowImportingTsExtensions": true,
-
     /* Linting */
     "strict": true,
     "noFallthroughCasesInSwitch": true,

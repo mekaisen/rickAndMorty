@@ -5,10 +5,16 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "moduleDetection": "force",
     "useDefineForClassFields": true,
+    "baseUrl": ".",
     "module": "ESNext",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "paths": {
+      "@/components": ["./src/components"],
+      "@/*": ["./src/*"],
+      "@/utils": ["./src/utils"]
+    },
     "allowImportingTsExtensions": true,
 
     /* Linting */

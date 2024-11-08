@@ -19,14 +19,13 @@ export const ratingRouter = router({
               increment: 1
             }
           }),
-          ...(input.rate === 'dislike' && {
+          ...input.rate === 'dislike' && {
             dislikes: {
               increment: 1
             }
-          })
+          }
         }
       });
-      console.log(updateCharacter);
       return updateCharacter;
     })
 });

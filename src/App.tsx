@@ -25,7 +25,7 @@ const App = () => {
         <div className='container h-full flex flex-col'>
           <div className='flex justify-center p-4'>
 
-            <div className='flex w-96 h-8 bg-gray-700 text-cyan-50 gap-3 justify-center items-center rounded-lg'>
+            <div className='flex px-4 w-[700px] h-8 bg-gray-700 text-cyan-50 gap-5 justify-center items-center rounded-lg'>
               <Link to='/' className='[&.active]:font-bold'>
                 Главная
 
@@ -33,8 +33,17 @@ const App = () => {
               <Link to='/tinder' className='[&.active]:font-bold'>
                 Тиндер
               </Link>
+              <Link to='/rating' className='[&.active]:font-bold'>
+                Рейтинг
+              </Link>
+              <Link to='/infscroll' className='[&.active]:font-bold'>
+                бесконечный скролл
+              </Link>
               <Link to='/pagination' className='[&.active]:font-bold'>
                 Пагинация
+              </Link>
+              <Link to='/clicker' className='[&.active]:font-bold'>
+                Тапалка
               </Link>
             </div>
           </div>

@@ -23,6 +23,10 @@ export const characterRouter = router({
 
     await fillDatabase();
     return character;
+  }),
+  getCharacters: publicProcedure.query(async () => {
+    const characters = prisma.haracter.findMany();
+    return characters;
   })
 });
 
